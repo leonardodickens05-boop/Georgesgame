@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snakes &amp; Ladders</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1>🐍 Snakes &amp; Ladders 🪜</h1>
+      <p class="tagline">Roll the dice, climb the ladders, dodge the snakes — first to 100 wins!</p>
+    </header>
+
+    <main class="layout">
+      <section class="board-area">
+        <canvas id="board" width="600" height="600" aria-label="Game board"></canvas>
+      </section>
+
+      <aside class="panel">
+        <!-- Setup screen -->
+        <div id="setup" class="card">
+          <h2>New Game</h2>
+          <label class="field">
+            Number of players
+            <select id="playerCount">
+              <option value="2">2 players</option>
+              <option value="3">3 players</option>
+              <option value="4">4 players</option>
+            </select>
+          </label>
+          <div id="nameInputs" class="names"></div>
+          <label class="field checkbox">
+            <input type="checkbox" id="autoCpu" />
+            Last player is the CPU 🤖
+          </label>
+          <button id="startBtn" class="btn btn--primary">Start Game</button>
+        </div>
+
+        <!-- Game screen -->
+        <div id="game" class="card hidden">
+          <h2>Players</h2>
+          <ul id="playerList" class="players"></ul>
+
+          <div class="dice-area">
+            <div id="dice" class="dice" aria-label="Dice">🎲</div>
+            <button id="rollBtn" class="btn btn--primary">Roll Dice</button>
+          </div>
+
+          <p id="status" class="status">Press “Roll Dice” to begin.</p>
+
+          <div class="log-wrap">
+            <h3>Game Log</h3>
+            <ul id="log" class="log"></ul>
+          </div>
+
+          <button id="restartBtn" class="btn btn--ghost">New Game</button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Win overlay -->
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2 id="winText">🎉 Winner! 🎉</h2>
+        <button id="playAgainBtn" class="btn btn--primary">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
